@@ -53,7 +53,7 @@
         $(document).ready(function()
 {
     
-      
+      $(".seat").hide();
       var checkedcount = 0;
       $("input[type=checkbox]").click(function()
       {
@@ -94,7 +94,7 @@
     <div class="form-raw col-8 mt-2">
         <form action="search" method="post">
         @csrf
-            <input type="text" class="form-control w-50 float-left" name="search" placeholder="Search movie name.."/>
+            <input type="text" class="form-control w-50 float-left" name="search" placeholder="Search movie name, Theatre Name and City..."/>
             <button class="btn btn-dark float-left">search</button>
         </form>
     </div>

@@ -53,8 +53,12 @@
         $(document).ready(function()
 {
     
-      
+    $(".seat").hide();
       var checkedcount = 0;
+      $("#check").click(function()
+      {
+        $(".seat").show();
+      } );     
       $("input[type=checkbox]").click(function()
       {
           if(this.checked)
@@ -66,7 +70,7 @@
           }
           if(checkedcount>=$("#check").val()){
             $(":checkbox").not("input:checkbox:checked").prop("disabled", this.checked);
-            // $("#check").prop("disabled",true);
+             $("#check").prop("readonly",true);
           }
       });
 });

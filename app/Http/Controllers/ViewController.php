@@ -7,9 +7,10 @@ use Illuminate\Http\Request;
 class ViewController extends Controller
 {
     public function view(Request $req){
-        $affected = DB::table('bookings')
-            ->join('movies', 'movies.id', '=', 'bookings.m_id')
-            ->select('movies.image','movies.name','movies.description','bookings.time','bookings.seatno','bookings.TheatreName','bookings.totalperson','bookings.date')
+        $affected = DB::table('theatres')
+            ->join('bookings', 'bookings.t_id', '=', 'theatres.t_id')
+            ->join('movies', 'movies.id', '=', 'theatres.m_id')
+            ->select('movies.image','movies.name','theatres.t_id','theatres.t_city','theatres.t_name','bookings.time','bookings.seatno','bookings.totalperson','bookings.date')
             ->where(['bookings.u_id'=>$req->id])
             ->get();
         return view("ticket")->with('affected' , $affected);
@@ -68,9 +69,33 @@ class ViewController extends Controller
         $affected = DB::table('theatres')
             ->where(['m_id' => $req->id])
             ->get();
+        // $book = DB::table('bookings')
+        //     ->where(['m_id' => $req->id])
+        //     ->get();
+        // $seat = array();
+        // for($i =0;$i < count($book);$i++){
+        //     $s=array();
+        //     $s=explode(",", $book[$i]->seatno);
+        //     $seat = array_merge($seat, $s); 
+           
+        // }
+        return view("book")->with('affected' , $affected);
+    }
+    public function searchmovie(Request $req){
+        $search=$req->search;
+        $movie = DB::table('movies')
+        ->join('theatres', 'theatres.m_id', '=', 'movies.id')
+        ->select('movies.image','movies.name','movies.director','movies.id')
+            ->where('name', 'LIKE', "%{$search}%")
+            ->orwhere('theatres.t_name', 'LIKE', "%{$search}%")
+            ->orwhere('theatres.t_city', 'LIKE', "%{$search}%")
+            ->distinct("movies.name")
+            ->get();
+        return view("home")->with('movie',$movie);
+    }
+    public function seat(Request $req){
         $book = DB::table('bookings')
-            ->select('seatno')
-            ->where(['m_id' => $req->id])
+            ->where(['t_id' => $req->id])
             ->get();
         $seat = array();
         for($i =0;$i < count($book);$i++){
@@ -79,13 +104,6 @@ class ViewController extends Controller
             $seat = array_merge($seat, $s); 
            
         }
-        return view("book")->with(['affected' => $affected,  'seat' => $seat]);
-    }
-    public function searchmovie(Request $req){
-        $search=$req->search;
-        $movie = DB::table('movies')
-            ->where('name', 'LIKE', "%{$search}%")
-            ->get();
-        return view("home")->with('movie',$movie);
+        return view("seat")->with('seat' , $seat);
     }
 }

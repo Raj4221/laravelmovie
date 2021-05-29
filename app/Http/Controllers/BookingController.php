@@ -41,9 +41,8 @@ class BookingController extends Controller
         $seatno=implode(",",$items);
         $date = date('Y-m-d', time());
         $booking=new booking();
-        $booking->m_id=$request->m_id;
+        $booking->t_id=$request->t_id;
         $booking->u_id=session()->get('user');
-        $booking->TheatreName=$request->t_city;
         $booking->time=$request->time;
         $booking->totalperson=$request->check;
         $booking->seatno=$seatno;

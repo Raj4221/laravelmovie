@@ -17,6 +17,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/seat/{id?}',"App\\Http\\Controllers\\ViewController@seat");
+
+
 Route::get('/home',"App\\Http\\Controllers\\MovieController@index");
 
 Route::get('/book/{id?}',"App\\Http\\Controllers\\ViewController@viewmovietheatre");
