@@ -37,7 +37,7 @@
     ======================================================== -->
 </head>
 
-<body>
+<body  style="background-image:url('img/jGbRY2.jpg')">
 
 <!-- ======= Top Bar ======= -->
 <section id="topbar" class="d-none d-lg-block">
@@ -54,7 +54,7 @@
     <div class="container">
 
         <div class="logo float-left">
-            <h1 class="text-light"><a href="/"><span>Raj Teatre</span></a></h1>
+            <h1 class="text-light"><a href="/"><span>RAJ CINEMA</span></a></h1>
             <!-- Uncomment below if you prefer to use an image logo -->
             <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
         </div>
@@ -96,7 +96,7 @@
 
 <!-- ======= Footer ======= -->
 <footer id="footer">
-    <div class="footer-top">
+    <div class="footer-top mt-5">
         <div class="container">
             <div class="row">
 

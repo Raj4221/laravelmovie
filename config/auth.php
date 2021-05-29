@@ -71,6 +71,15 @@ return [
             'model' => App\Models\User::class,
         ],
 
+        'members' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\member::class,
+        ],
+
+        'booking' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\booking::class,
+        ],
         // 'users' => [
         //     'driver' => 'database',
         //     'table' => 'users',

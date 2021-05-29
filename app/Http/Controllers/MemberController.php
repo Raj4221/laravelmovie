@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\booking;
+use App\Models\theatre;
 use App\Models\member;
 use Illuminate\Http\Request;
 
@@ -15,7 +16,11 @@ class MemberController extends Controller
     public function index()
     {
         //
+        $id=session()->get('user');
+        $member=member::find($id);
+        return view('ticket')->with('bookings',$member->bookings);
     }
+
 
     /**
      * Show the form for creating a new resource.

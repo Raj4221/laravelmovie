@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('/auth/login');
 });
 
 Route::get('/seat/{id?}',"App\\Http\\Controllers\\ViewController@seat");
@@ -51,8 +52,11 @@ Route::get("/viewactor","App\\Http\\Controllers\\ActorController@index");
 
 Route::resource("booking","App\Http\Controllers\BookingController");
 Route::get('/ticket/{id?}',"App\\Http\\Controllers\\ViewController@view");
+// This Is For Relationship: Route::get('/ticket/{id?}',"App\\Http\\Controllers\\MemberController@index");
+
 
 Route::post("/search","App\\Http\\Controllers\\ViewController@searchmovie");
-//  Auth::routes();
+
+Auth::routes();
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

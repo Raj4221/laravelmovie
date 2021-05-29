@@ -5,17 +5,22 @@ namespace App\Http\Controllers;
 use App\Models\booking;
 use Illuminate\Http\Request;
 
+
 class BookingController extends Controller
 {
+
+
     /**
      * Display a listing of the resource.
      *
+     * 
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
         //
-        return Booking::latest()->get();  
+        return Booking::latest()->get(); 
+       
     }
 
     /**
@@ -42,7 +47,7 @@ class BookingController extends Controller
         $date = date('Y-m-d', time());
         $booking=new booking();
         $booking->t_id=$request->t_id;
-        $booking->u_id=session()->get('user');
+        $booking->member_id=session()->get('user');
         $booking->time=$request->time;
         $booking->totalperson=$request->check;
         $booking->seatno=$seatno;

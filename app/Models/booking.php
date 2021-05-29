@@ -7,6 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class booking extends Model
 {
+    protected $table="bookings";
+
+    public $primarykey='b_id';
+
     use HasFactory;
-    protected $fillable = ['t_id','u_id','seatno','time','totalperson','date'];
+    protected $fillable = ['t_id','member_id','seatno','time','totalperson','date'];
+
+    public function user(){
+        return $this->belongsTo('App\Models\User');
+    }
 }

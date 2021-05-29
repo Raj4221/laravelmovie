@@ -11,7 +11,7 @@ class ViewController extends Controller
             ->join('bookings', 'bookings.t_id', '=', 'theatres.t_id')
             ->join('movies', 'movies.id', '=', 'theatres.m_id')
             ->select('movies.image','movies.name','theatres.t_id','theatres.t_city','theatres.t_name','bookings.time','bookings.seatno','bookings.totalperson','bookings.date')
-            ->where(['bookings.u_id'=>$req->id])
+            ->where(['bookings.member_id'=>$req->id])
             ->get();
         return view("ticket")->with('affected' , $affected);
     }

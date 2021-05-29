@@ -8,4 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class theatre extends Model
 {
     use HasFactory;
+    public function member(){
+        return $this->belongsTo('App\Models\member');
+    }
 }

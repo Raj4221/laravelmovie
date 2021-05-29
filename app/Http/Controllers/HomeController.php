@@ -1,6 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\booking;
+use App\Models\theatre;
+use App\Models\User;
 
 use Illuminate\Http\Request;
 
@@ -23,6 +26,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $id=session()->get('user');
+        $user=User::find($id);
+        return view('ticket')->with('bookings',$user->bookings);
     }
 }
