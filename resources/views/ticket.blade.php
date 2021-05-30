@@ -73,7 +73,7 @@
 <main id="main">
     <section class="inner-page">
 
-
+    @if($affected->count() > 0)
         <div class="container">
         @foreach ($affected as $pro)
             <div class="card mb-3" style="overflow: hidden;height:340px;width:65%;margin-left:auto;margin-right:auto;">
@@ -106,7 +106,11 @@
                 </div> 
                 @endforeach
                 </div>
-
+        @else
+                                   
+            <center><h4 class="mt-5"><b>Oops!</b>, no ticket found.</h4><center>
+                                                                  
+        @endif   
     </section>
     <br>
     <br>

@@ -29,7 +29,7 @@
                                 </div>
             @else
                                    
-                <center><h1 class="mt-5">no record</h1><center>
+                <center><h4 class="mt-5"><b>Oops!</b>, no theatre found.</h4><center>
                                                
             @endif    
 </div>

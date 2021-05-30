@@ -25,7 +25,33 @@
 <link rel="stylesheet" href={{asset("admin/plugins/summernote/summernote-bs4.min.css")}}>
 <link rel="stylesheet" href="{{asset('plugins/select2/css/select2.min.css')}}">
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js" integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA==" crossorigin="anonymous"></script>
     <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+
+    <script>
+            function update(){
+                swal({
+                    text: "Book Succesfull",
+                    icon: "success",
+                    button: false,
+                });
+            }
+            function insert(){
+                swal({
+                    text: "Insert Succesfull",
+                    icon: "success",
+                    button: false,
+                });
+            }
+            function delete(){
+                swal({
+                    text: "Insert Succesfull",
+                    icon: "success",
+                    button: false,
+                });
+            }
+    </script>
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 

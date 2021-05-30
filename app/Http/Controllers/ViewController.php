@@ -86,7 +86,7 @@ class ViewController extends Controller
         $movie = DB::table('movies')
         ->join('theatres', 'theatres.m_id', '=', 'movies.id')
         ->select('movies.image','movies.name','movies.director','movies.id')
-            ->where('name', 'LIKE', "%{$search}%")
+            ->where('movies.name', 'LIKE', "%{$search}%")
             ->orwhere('theatres.t_name', 'LIKE', "%{$search}%")
             ->orwhere('theatres.t_city', 'LIKE', "%{$search}%")
             ->distinct("movies.name")

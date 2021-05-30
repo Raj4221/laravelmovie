@@ -25,6 +25,7 @@
     <link href="assets/img/favicon.png" rel="icon">
     <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js" integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA==" crossorigin="anonymous"></script>
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,600,600i,700,700i,900" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -47,33 +48,64 @@
 
         <script type="text/javascript">
 
+            function book(){
+                swal({
+                    text: "Book Succesfull",
+                    icon: "success",
+                    button: false,
+                });
+            }
+            function insert(){
+                swal({
+                    text: "Insert Succesfull",
+                    icon: "success",
+                    button: false,
+                });
+            }
+            function login(){
+                swal({
+                    text: "Insert Succesfull",
+                    icon: "success",
+                    button: false,
+                });
+            }
+            function logout(){
+                swal({
+                    text: "Logout Succesfull",
+                    icon: "success",
+                    button: false,
+                });
+            }
+
         var currentuser = {{  session()->get('user')}};
-
-
         $(document).ready(function()
-{
-    
-    $(".seat").hide();
-      var checkedcount = 0;
-      $("#check").click(function()
-      {
-        $(".seat").show();
-      } );     
-      $("input[type=checkbox]").click(function()
-      {
-          if(this.checked)
-          {
-            checkedcount++;
-          }
-          else{
-            checkedcount--;
-          }
-          if(checkedcount>=$("#check").val()){
-            $(":checkbox").not("input:checkbox:checked").prop("disabled", this.checked);
-             $("#check").prop("readonly",true);
-          }
-      });
-});
+        {
+            
+            $(".seat").hide();
+            $("#check").prop("disabled",true);
+            var checkedcount = 0;
+            $("#check").click(function()
+            {
+                $(".seat").show();
+            });     
+            $("input[type=checkbox]").click(function()
+            {
+                if(this.checked)
+                {
+                    checkedcount++;
+                }
+                else{
+                    checkedcount--;
+                }
+                if(checkedcount>=$("#check").val()){
+                    $(":checkbox").not("input:checkbox:checked").prop("disabled", this.checked);
+                    $("#check").prop("readonly",true);
+                }
+            });
+            $("#name").click(function(){
+                $("#check").prop("disabled",false);
+            });
+        });
         </script>
 </head>
 <body>
@@ -108,7 +140,7 @@
   
                 <li class="active"><a href="/home" style="text-decoration:none;">Home</a></li>
                 <li class="active"><a href="/ticket/{{session()->get('user')}}" style="text-decoration:none;">Booking History</a></li>
-                <li class="active"><a href="/logout" style="text-decoration:none;">logout</a></li>
+                <li class="active"><a href="/logout" style="text-decoration:none;" onclick="return logout()">logout</a></li>
                 </ul>
                 </nav><!-- .nav-menu -->
         

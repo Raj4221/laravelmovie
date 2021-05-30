@@ -18,13 +18,6 @@ Route::get('/', function () {
     return view('/auth/login');
 });
 
-Route::get('/seat/{id?}',"App\\Http\\Controllers\\ViewController@seat");
-
-
-Route::get('/home',"App\\Http\\Controllers\\MovieController@index");
-
-Route::get('/book/{id?}',"App\\Http\\Controllers\\ViewController@viewmovietheatre");
-
 Route::resource("movie","App\Http\Controllers\MovieController");
 Route::get("/insert","App\\Http\\Controllers\\MovieController@create");
 Route::get("/viewmovies","App\\Http\\Controllers\\ViewController@viewmovie");
@@ -54,6 +47,13 @@ Route::resource("booking","App\Http\Controllers\BookingController");
 Route::get('/ticket/{id?}',"App\\Http\\Controllers\\ViewController@view");
 // This Is For Relationship: Route::get('/ticket/{id?}',"App\\Http\\Controllers\\MemberController@index");
 
+Route::get('/seat/{id?}',"App\\Http\\Controllers\\ViewController@seat");
+
+Route::post('/user_login',"App\\Http\\Controllers\\auth\\LoginController@login");
+
+Route::get('/home',"App\\Http\\Controllers\\MovieController@index");
+
+Route::get('/book/{id?}',"App\\Http\\Controllers\\ViewController@viewmovietheatre");
 
 Route::post("/search","App\\Http\\Controllers\\ViewController@searchmovie");
 

@@ -1,24 +1,25 @@
 @extends('layouts.app')
 @section('content')
 {{session()->get('m_id')}}
+<section>
 <div class="container mt-4">
 <form action="{{route('booking.store')}}" method="post">
         @csrf
         <input type="hidden" class="form-control form-control-sm" name="t_id" value="{{request()->route()->id}}">
 
-        <div class="form-row">
+        <!-- <div class="form-row">
                         <select name="time" id="time" class="btn btn-secondary w-25">
                             <option class="btn btn-primary" value="9:00AM">9:00 AM</option>
                             <option class="btn btn-primary" value="12:00PM">12:00 PM</option>
                             <option class="btn btn-primary" value="3:00PM">3:00 PM</option>
                             <option class="btn btn-primary" value="6:00PM">6:00 PM</option>
                         </select> 
-        </div>
+        </div> -->
 
         <div class="form-row mt-3">
                         <div class="col">
                             Enter Names:<br>
-                            <input type="text" class="form-control" placeholder="enter names" required>
+                            <input type="text" class="form-control" id="name" placeholder="enter names" required>
                         </div>
                         <div class="col">
                             Enter Total Person:<br>
@@ -78,10 +79,11 @@
                 </div>
             
                 <div>
-                        <button class="btn btn-warning float-right mt-5">Booking Confirm</button>
+                        <button class="btn btn-warning float-right mt-5" onclick="book()">Booking Confirm</button>
                 </div>
             </div>
             </div>
 <form>
 </div>
+</section>
 @endsection

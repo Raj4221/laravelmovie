@@ -48,7 +48,7 @@ class BookingController extends Controller
         $booking=new booking();
         $booking->t_id=$request->t_id;
         $booking->member_id=session()->get('user');
-        $booking->time=$request->time;
+        $booking->time="6:00 PM";
         $booking->totalperson=$request->check;
         $booking->seatno=$seatno;
         $booking->date=$date;

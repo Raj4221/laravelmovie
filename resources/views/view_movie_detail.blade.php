@@ -109,16 +109,20 @@
                              Rate: <span class="card-text">{{$pro->rate}}/5</span><br>
                             </div>
                             <h3 class="ml-3">Cast</h3>
-                            <div class="row">
-                            @foreach ($cast as $pro)
-                                <div class="col-4">
-                                <a href="/viewactordetail/{{$pro->a_id}}"><img src="/img/avatar_2x.png" alt="Admin" class="rounded-circle mt-2" style="width: 150px ;height: 150px"></a>
-                                <h5 class="mt-3"><b>{{$pro->name}}</b></h5>
-                                Bio: <span id="title">{{$pro->bio}}</span><br>
-                                Birth Date: <span id="title">{{$pro->dob}}</span>
+                            @if($cast->count() > 0)
+                                <div class="row">
+                                @foreach ($cast as $pro)
+                                    <div class="col-4">
+                                    <a href="/viewactordetail/{{$pro->a_id}}"><img src="/img/avatar_2x.png" alt="Admin" class="rounded-circle mt-2" style="width: 150px ;height: 150px"></a>
+                                    <h5 class="mt-3"><b>{{$pro->name}}</b></h5>
+                                    Bio: <span id="title">{{$pro->bio}}</span><br>
+                                    Birth Date: <span id="title">{{$pro->dob}}</span>
+                                    </div>
+                                @endforeach
                                 </div>
-                            @endforeach
-                            </div>
+                            @else                        
+                                <h4 class="ml-4 mt-3"><b>Oops!</b>, no actors found.</h4>                                     
+                            @endif      
                         </div>
                     </div>
                 </div>

@@ -13,6 +13,7 @@
     <link href="assets/img/favicon.png" rel="icon">
     <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js" integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA==" crossorigin="anonymous"></script>
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,600,600i,700,700i,900" rel="stylesheet">
 
@@ -28,6 +29,22 @@
 
     <!-- Template Main CSS File -->
     <link href="{{url('assets/css/style.css')}}" rel="stylesheet">
+    <script>
+    function register(){
+                swal({
+                    text: "Register Succesfull",
+                    icon: "success",
+                    button: false,
+                });
+            }
+            function login(){
+                swal({
+                    text: "Login Succesfull",
+                    icon: "success",
+                    button: false,
+                });
+            }
+    </script>
 
     <!-- =======================================================
     * Template Name: Mamba - v2.4.0

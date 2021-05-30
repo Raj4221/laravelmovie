@@ -1,11 +1,11 @@
 @extends('layouts.master')
 @section('title',"Insert")
 @section('page_content')
-
+@if($actor->count() > 0)
 <div class="content-wrapper">
         <!-- Content Header (Page header) -->
       
-
+  
         <!-- Main content -->
         <section class="content">
             <div class="row">
@@ -49,7 +49,7 @@
                                                 <td>{{$act->bio}}</td>
                                                 <td>{{$act->dob}}</td>
                                                 <td><a href="#" style="text-decoration:none;">UPDATE</a></td>
-                                                <td><a href="/actor_delete/{{$act->a_id}}" style="text-decoration:none;">DELETE</a></td>
+                                                <td><a href="/actor_delete/{{$act->a_id}}" style="text-decoration:none;" onclick="delete()">DELETE</a></td>
                                             </tr>
                                         @endforeach
                                     </table>
@@ -63,8 +63,13 @@
 <!-- /.col-->
 </div>
 <!-- ./row -->
-</section>
+</section>  
 <!-- /.content -->
 </div>
 
+@else
+                                   
+    <center><h4 class="mt-5"><b>Oops!</b>, no actor found.</h4><center>
+                                               
+@endif  
 @endsection

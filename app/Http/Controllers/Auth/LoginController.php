@@ -3,8 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Providers\RouteServiceProvider;
-use Illuminate\Foundation\Auth\AuthenticatesUsers;
+
 use Illuminate\Http\Request;
 use App\Models\User;
 
@@ -21,27 +20,11 @@ class LoginController extends Controller
     |
     */
 
-    use AuthenticatesUsers;
-
-    /**
-     * Where to redirect users after login.
-     *
-     * @var string
-     */
-    protected $redirectTo = RouteServiceProvider::HOME;
-
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('guest')->except('logout');
-    }
 
     public function login(Request $request)
     {
+        
+
         $input = $request->all();
 
         $this->validate($request,[
@@ -49,19 +32,19 @@ class LoginController extends Controller
             'password' => 'required',
         ]);
 
-        $user = User::where("email",$input['email'])->get();
-        session()->put("name",$request->email);
-        session()->put("user",$user[0]->id);
-      
+        $user = User::where("email",$request->email)->get();
+
         if(auth()->attempt(array('email' => $input['email'], 'password' => $input['password'])))
         {
+            
            if(auth()->user()->is_admin == 1)
            {
                return redirect('/insert');
            }
            elseif(auth()->user()->is_admin == 0)
            {
-                
+                $request->session()->put("name",$request->email);
+                $request->session()->put("user",$user[0]->id);
                 return redirect('/home');
            }
         }

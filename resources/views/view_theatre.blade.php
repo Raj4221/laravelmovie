@@ -2,10 +2,11 @@
 @section('title',"Insert")
 @section('page_content')
 
+@if($affected->count() > 0)
 <div class="content-wrapper">
         <!-- Content Header (Page header) -->
       
-
+    
         <!-- Main content -->
         <section class="content">
             <div class="row">
@@ -48,7 +49,7 @@
                                                 <td>{{$pro->t_city}}</td>
                                                 <td>{{$pro->rate}}</td>
                                                 <td><a href="/edit_theatre/{{$pro->t_id}}" style="text-decoration:none;">UPDATE</a></td>
-                                                <td><a href="/theatre_delete/{{$pro->t_id}}" style="text-decoration:none;">DELETE</a></td>
+                                                <td><a href="/theatre_delete/{{$pro->t_id}}" style="text-decoration:none;" onclick="delete()">DELETE</a></td>
                                             </tr>
                                         @endforeach
                                     </table>
@@ -63,7 +64,13 @@
 </div>
 <!-- ./row -->
 </section>
+
+
 <!-- /.content -->
 </div>
-
+@else
+                                   
+    <center><h4 class="mt-5"><b>Oops!</b>, no theatre found.</h4><center>
+                                               
+@endif  
 @endsection

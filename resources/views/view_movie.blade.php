@@ -1,10 +1,11 @@
 @extends('layouts.master')
 @section('title',"Insert")
 @section('page_content')
+    
+@if($affected->count() > 0)
 <div class="content-wrapper">
         <!-- Content Header (Page header) -->
-      
-
+  
         <!-- Main content -->
         <section class="content">
             <div class="row">
@@ -70,7 +71,14 @@
 <!-- /.col-->
 </div>
 <!-- ./row -->
-</section>
+</section> 
 <!-- /.content -->
 </div>
+
+
+@else
+                                   
+    <center><h4 class="mt-5"><b>Oops!</b>, no movie found.</h4><center>
+                                               
+@endif 
 @endsection

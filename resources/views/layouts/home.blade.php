@@ -39,6 +39,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
 
     <!-- Template Main CSS File -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js" integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA==" crossorigin="anonymous"></script>
     <link href="{{url('assets/css/style.css')}}" rel="stylesheet">
     <script
         src="https://code.jquery.com/jquery-3.4.1.min.js"
@@ -53,7 +54,7 @@
         $(document).ready(function()
 {
     
-      $(".seat").hide();
+      
       var checkedcount = 0;
       $("input[type=checkbox]").click(function()
       {
@@ -140,7 +141,7 @@
 
 <!-- ======= Footer ======= -->
 <footer id="footer">
-    <div class="footer-top mt-4">
+    <div class="footer-top mt-5">
         <div class="container">
             <div class="row">
 

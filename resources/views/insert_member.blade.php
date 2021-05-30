@@ -29,7 +29,7 @@
             <input type="number" class="form-control form-control-sm" name="number" placeholder="Enter Contact Number">
         </div>
 
-        <input type="submit" name="btnIns" value="Insert Data">
+        <input type="submit" name="btnIns" value="Insert Data" onclick="insert()">
     </form>
     {{session('msg','')}}
 

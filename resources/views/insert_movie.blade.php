@@ -52,7 +52,7 @@
                                 </div>
                                 
 
-                                <input type="submit" name="btnIns" value="Insert Data">
+                                <input type="submit" name="btnIns" value="Insert Data" onclick="insert()">
                                 </div>
                             </form>
     {{session('msg','')}}
