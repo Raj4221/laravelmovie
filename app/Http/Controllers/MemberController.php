@@ -16,9 +16,7 @@ class MemberController extends Controller
     public function index()
     {
         //
-        $id=session()->get('user');
-        $member=member::find($id);
-        return view('ticket')->with('bookings',$member->bookings);
+        
     }
 
 

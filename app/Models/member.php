@@ -9,10 +9,4 @@ class member extends Model
 {
     use HasFactory;
 
-    public function bookings(){
-        return $this->hasMany('App\Models\booking');
-    }
-    public function theatres(){
-        return $this->hasMany('App\Models\theatre');
-    }
 }

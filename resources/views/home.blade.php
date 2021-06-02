@@ -17,7 +17,7 @@
                             <a href="view_movie_detail/{{$pro->id}}" style="text-decoration:none;"><h3>{{$pro->name}}</h3></a>
                             <p><b>Director Name:</b>{{$pro->director}}</p>
                         </div>
-                        <div class=" mt-3 col-4">
+                        <div class="col-4">
                             <a href="book/{{$pro->id}}" class="btn btn-success float-right"><i class="fa fa-ticket" style="font-size:48px"></i></a>
                         </div>
                     </div>

@@ -29,7 +29,7 @@ class sendmailverification
      */
     public function handle(eventregister $event)
     {
-        $msg = "Thank You For Register. "." welcome  " . $event->data['name'].",email: ". $event->data['email'].",pasword: ".$event->data['password'];
+        $msg = "Thank You For Register. "." Welcome  " . $event->data['name'].". email: ". $event->data['email'].",pasword: ".$event->data['password'];
         Mail::to($event->data['email'])->send(new SendMail($msg));
     }
 }

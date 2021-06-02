@@ -95,7 +95,7 @@
     <div class="form-raw col-8 mt-2">
         <form action="search" method="post">
         @csrf
-            <input type="text" class="form-control w-50 float-left" name="search" placeholder="Search movie name, Theatre Name and City..."/>
+            <input type="text" class="form-control w-50 float-left" name="search" placeholder="Search movie name, Theatre Name and City..." required/>
             <button class="btn btn-dark float-left">search</button>
         </form>
     </div>

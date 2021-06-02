@@ -91,10 +91,10 @@
       </div>
     </section><!-- End Breadcrumbs Section -->
 
-  
+
         <section class="inner-page">
         <div class="container">
-        @foreach ($affected as $pro)
+        @foreach ($movies as $pro)
             <div class="card mb-3" style="width: 100%;">
                 <div class="row">
                     <div class="col-4">
@@ -109,7 +109,7 @@
                              Rate: <span class="card-text">{{$pro->rate}}/5</span><br>
                             </div>
                             <h3 class="ml-3">Cast</h3>
-                            @if($cast->count() > 0)
+
                                 <div class="row">
                                 @foreach ($cast as $pro)
                                     <div class="col-4">
@@ -120,21 +120,19 @@
                                     </div>
                                 @endforeach
                                 </div>
-                            @else                        
-                                <h4 class="ml-4 mt-3"><b>Oops!</b>, no actors found.</h4>                                     
-                            @endif      
+
                         </div>
                     </div>
                 </div>
-    
+
         @endforeach
         </div>
     </section>
     <br>
     <br>
-   
-       
-  
+
+
+
 
 </main><!-- End #main -->
 

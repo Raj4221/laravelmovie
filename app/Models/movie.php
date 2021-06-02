@@ -8,7 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class movie extends Model
 {
     use HasFactory;
-    public function casts(){
-        return $this->belongsToMany('App\Models\actor','actors');
+
+    protected $table="movies";
+
+    protected $fillable = ['id','name','description','director','rate','image'];
+
+    public function actors(){
+        return $this->hasMany('App\Models\actor');
     }
 }

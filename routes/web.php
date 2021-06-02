@@ -21,7 +21,7 @@ Route::get('/', function () {
 Route::resource("movie","App\Http\Controllers\MovieController");
 Route::get("/insert","App\\Http\\Controllers\\MovieController@create");
 Route::get("/viewmovies","App\\Http\\Controllers\\ViewController@viewmovie");
-Route::get("/view_movie_detail/{id?}","App\\Http\\Controllers\\ViewController@viewmoviedetail");
+Route::get("/view_movie_detail/{id?}","App\\Http\\Controllers\\MovieController@index");
 
 
 Route::resource("member","App\Http\Controllers\MemberController");
@@ -51,7 +51,7 @@ Route::get('/seat/{id?}',"App\\Http\\Controllers\\ViewController@seat");
 
 Route::post('/user_login',"App\\Http\\Controllers\\auth\\LoginController@login");
 
-Route::get('/home',"App\\Http\\Controllers\\MovieController@index");
+Route::get('/home',"App\\Http\\Controllers\\MovieController@view");
 
 Route::get('/book/{id?}',"App\\Http\\Controllers\\ViewController@viewmovietheatre");
 

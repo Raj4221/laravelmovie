@@ -4,8 +4,8 @@
 @if($actor->count() > 0)
 <div class="content-wrapper">
         <!-- Content Header (Page header) -->
-      
-  
+
+
         <!-- Main content -->
         <section class="content">
             <div class="row">
@@ -44,7 +44,7 @@
 
                                         @foreach ($actor as $act)
                                             <tr>
-                                                <td>{{$act->a_id}}</td>
+                                                <td>{{$act->movie_id}}</td>
                                                 <td>{{$act->name}}</td>
                                                 <td>{{$act->bio}}</td>
                                                 <td>{{$act->dob}}</td>
@@ -63,13 +63,14 @@
 <!-- /.col-->
 </div>
 <!-- ./row -->
-</section>  
+</section>
 <!-- /.content -->
 </div>
 
 @else
-                                   
+
     <center><h4 class="mt-5"><b>Oops!</b>, no actor found.</h4><center>
-                                               
-@endif  
+
+@endif
 @endsection
+

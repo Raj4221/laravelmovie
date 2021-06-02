@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-use Illuminate\Support\Facades\DB;  
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
 class ViewController extends Controller
@@ -47,7 +47,7 @@ class ViewController extends Controller
         ->where(['a_id' => $req->id])
         ->get();
         $movie=DB::table('actors')
-        ->join('movies', 'movies.id', '=', 'actors.m_id')
+        ->join('movies', 'movies.id', '=', 'actors.movie_id')
         ->select('movies.image','movies.name')
         ->where(['actors.a_id' => $req->id])
         ->get();
@@ -76,8 +76,8 @@ class ViewController extends Controller
         // for($i =0;$i < count($book);$i++){
         //     $s=array();
         //     $s=explode(",", $book[$i]->seatno);
-        //     $seat = array_merge($seat, $s); 
-           
+        //     $seat = array_merge($seat, $s);
+
         // }
         return view("book")->with('affected' , $affected);
     }
@@ -94,15 +94,17 @@ class ViewController extends Controller
         return view("home")->with('movie',$movie);
     }
     public function seat(Request $req){
+        $date=date('Y-m-d', time());
         $book = DB::table('bookings')
             ->where(['t_id' => $req->id])
+            ->where(['date' => $date])
             ->get();
         $seat = array();
         for($i =0;$i < count($book);$i++){
             $s=array();
             $s=explode(",", $book[$i]->seatno);
-            $seat = array_merge($seat, $s); 
-           
+            $seat = array_merge($seat, $s);
+
         }
         return view("seat")->with('seat' , $seat);
     }

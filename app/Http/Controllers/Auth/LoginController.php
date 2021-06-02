@@ -43,14 +43,14 @@ class LoginController extends Controller
            }
            elseif(auth()->user()->is_admin == 0)
            {
-                $request->session()->put("name",$request->email);
+                $request->session()->put("name",$user[0]->name);
                 $request->session()->put("user",$user[0]->id);
                 return redirect('/home');
-           }
+           }	
         }
         else
         {
-            return redirect()->route('login')->with('error', 'Email of Password are wrong.');
+            return redirect('/')->with('error', 'Email of Password are wrong.');
         }
 
     }

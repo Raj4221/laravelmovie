@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\movie;
 use App\Models\actor;
 use Illuminate\Http\Request;
 
@@ -40,7 +40,7 @@ class ActorController extends Controller
     {
         //
         $actor=new actor();
-        $actor->m_id=$request->m_id;
+        $actor->movie_id=$request->m_id;
         $actor->name=$request->name;
         $actor->bio=$request->bio;
         $actor->dob=$request->dob;

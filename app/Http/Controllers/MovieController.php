@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\movie;
+use App\Models\actor;
 use Illuminate\Http\Request;
 
 class MovieController extends Controller
@@ -12,14 +13,22 @@ class MovieController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $req)
+    {
+        //
+        $movies=movie::where('id',$req->id)->get();
+        $cast=movie::find($req->id);
+        return view("view_movie_detail")->with(['movies'=>$movies,'cast'=>$cast->actors]);
+        // return Movie::latest()->get();
+    }
+
+    public function view()
     {
         //
         $movie=movie::paginate(10);
         return view("home")->with('movie',$movie);
         // return Movie::latest()->get();
     }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -40,7 +49,7 @@ class MovieController extends Controller
     public function store(Request $request)
     {
         //
-       
+
         $imageName = $request->file('image')->getClientOriginalName();
 //        .'.'.$request->image->extension();
 
