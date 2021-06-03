@@ -54,7 +54,7 @@ Route::post('/user_login',"App\\Http\\Controllers\\auth\\LoginController@login")
 
 Route::get('/home',"App\\Http\\Controllers\\MovieController@view");
 
-Route::get('/book/{id?}',"App\\Http\\Controllers\\ViewController@viewmovietheatre");
+Route::get('/book/{id?}',"App\\Http\\Controllers\\MovieController@viewmovietheatre");
 
 Route::post("/search","App\\Http\\Controllers\\ViewController@searchmovie");
 

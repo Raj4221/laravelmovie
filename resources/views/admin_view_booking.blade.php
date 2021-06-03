@@ -14,7 +14,7 @@
                 <!-- /.box -->
                 <div class="card card-success">
                     <div class="card-header">
-                        <h3 class="card-title">VIEW ACTORS</h3>
+                        <h3 class="card-title">VIEW BOOKINGS</h3>
                     </div>
                     @if(count($errors) >0)
                         @foreach($errors->all() as $error)

@@ -80,21 +80,23 @@
         var currentuser = {{  session()->get('user')}};
         $(document).ready(function()
         {
-            
+
             $(".seat").hide();
             $("#check").prop("disabled",true);
             var checkedcount = 0;
             $("#check").click(function()
             {
                 $(".seat").show();
-            });     
+            });
             $("input[type=checkbox]").click(function()
             {
                 if(this.checked)
                 {
+                    $("#seat").append($(this).val()+" ")
                     checkedcount++;
                 }
                 else{
+                    $("#seat").last().remove()
                     checkedcount--;
                 }
                 if(checkedcount>=$("#check").val()){
@@ -112,12 +114,12 @@
 
 <section id="topbar" class="d-none d-lg-block">
     <div class="container clearfix">
-  
+
         <div class="contact-info float-left">
             <i class="icofont-envelope"></i><a href="mailto:contact@example.com">contact@example.com</a>
             <i class="icofont-phone"></i> +1 5589 55488 55
         </div>
-  
+
         <div class="float-right">
             <h5>Welcome: <b>{{session()->get('name')}}</b></h5>
         </div>
@@ -136,14 +138,14 @@
 
         <nav class="nav-menu float-right d-none d-lg-block">
             <ul>
-                
-  
+
+
                 <li class="active"><a href="/home" style="text-decoration:none;">Home</a></li>
                 <li class="active"><a href="/ticket/{{session()->get('user')}}" style="text-decoration:none;">Booking History</a></li>
                 <li class="active"><a href="/logout" style="text-decoration:none;" onclick="return logout()">logout</a></li>
                 </ul>
                 </nav><!-- .nav-menu -->
-        
+
             </div>
         </header><!-- End Header -->
 
@@ -164,7 +166,7 @@
       </div>
     </section><!-- End Breadcrumbs Section -->
 
-    
+
 
     @yield('content')
 
@@ -258,7 +260,7 @@
 
 
 
-   
+
 
 </body>
 </html>

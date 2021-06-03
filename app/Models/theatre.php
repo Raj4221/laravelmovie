@@ -11,4 +11,8 @@ class theatre extends Model
     public function member(){
         return $this->belongsTo('App\Models\member');
     }
+
+    public function movies(){
+        return $this->belongsTo(movie::class);
+    }
 }

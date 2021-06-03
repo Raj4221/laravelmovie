@@ -4,10 +4,10 @@
 <section class="inner-page">
         <div class="container">
         @foreach ($movies as $pro)
-            <div class="card mb-3" style="width: 100%;">
+            <div class="card mb-3" style="overflow: hidden;width: 100%;height:550px;">
                 <div class="row">
                     <div class="col-4">
-                         <img src="/img/{{$pro->image}}" class="card-img" alt="...">
+                         <img src="/img/{{$pro->image}}" class="card-img" alt="..." >
                      </div>
                      <div class="col-8">
                         <div class="card-body">
@@ -17,6 +17,7 @@
                              Time: <span class="card-text">2h 34m.</span><br>
                              Rate: <span class="card-text">{{$pro->rate}}/5</span><br>
                             </div>
+                            @if($cast->count()>0)
                             <h3 class="ml-3">Cast</h3>
 
                                 <div class="row">
@@ -29,7 +30,7 @@
                                     </div>
                                 @endforeach
                                 </div>
-
+                            @endif
                         </div>
                     </div>
                 </div>

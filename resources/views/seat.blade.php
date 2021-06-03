@@ -13,7 +13,7 @@
                             <option class="btn btn-primary" value="12:00PM">12:00 PM</option>
                             <option class="btn btn-primary" value="3:00PM">3:00 PM</option>
                             <option class="btn btn-primary" value="6:00PM">6:00 PM</option>
-                        </select> 
+                        </select>
         </div> -->
 
         <div class="form-row mt-3">
@@ -26,7 +26,7 @@
                             <input type="text" class="form-control" name="check" id="check" placeholder="enter total person" required>
                         </div>
         </div>
-                    <br>  
+                    <br>
             <div class="seat">
                 <div class="row mt-5">
                 <div class="col-3">
@@ -35,9 +35,9 @@
                         <div>
                             @for($j=1;$j<8;$j++)
                                     @if(in_array('R'.$j.$n, $seat))
-                                        <input type="checkbox" name="item[]" value="R{{$j}}{{$n}}" disabled> 
+                                        <input type="checkbox" name="item[]" value="R{{$n}}{{$j}}" disabled>
                                     @else
-                                <input type="checkbox" name="item[]" value="R{{$j}}{{$n}}" >
+                                <input type="checkbox" name="item[]" value="R{{$n}}{{$j}}" >
                                 @endif
                             @endfor
                     </div>
@@ -49,9 +49,9 @@
                     <div>
                         @for($j=1;$j<8;$j++)
                             @if(in_array('S'.$j.$n, $seat))
-                                <input type="checkbox" name="item[]" value="S{{$j}}{{$n}}" disabled/> 
+                                <input type="checkbox" name="item[]" value="S{{$n}}{{$j}}" disabled/>
                             @else
-                                <input type="checkbox" name="item[]" value="S{{$j}}{{$n}}" >
+                                <input type="checkbox" name="item[]" value="S{{$n}}{{$j}}" >
                             @endif
                         @endfor
                     </div>
@@ -63,9 +63,9 @@
                     <div>
                         @for($j=1;$j<8;$j++)
                             @if(in_array('T'.$j.$n, $seat))
-                                <input type="checkbox" name="item[]" value="T{{$j}}{{$n}}" disabled/> 
+                                <input type="checkbox" name="item[]" value="T{{$n}}{{$j}}" disabled/>
                             @else
-                                <input type="checkbox" name="item[]" value="T{{$j}}{{$n}}" >
+                                <input type="checkbox" name="item[]" value="T{{$n}}{{$j}}" >
                             @endif
                         @endfor
                     </div>
@@ -75,10 +75,11 @@
                     <h3>Instruction:</h3>
                     <input type="checkbox" name="" disabled/> Reserved seat can not be selected, Its Disabled<br>
                     <input type="checkbox" checked/> Selected seat<br>
-                    <input type="checkbox"/> Empty Seat 
+                    <input type="checkbox"/> Empty Seat
                 </div>
-            
+
                 <div>
+                        <span class="float-left mt-5">Selected Seat:</span><span id="seat" class="float-left mt-5"></span>
                         <button class="btn btn-warning float-right mt-5" onclick="book()">Booking Confirm</button>
                 </div>
             </div>

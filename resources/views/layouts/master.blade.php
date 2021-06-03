@@ -87,7 +87,7 @@
                         </li>
                         <li class="nav-item">
                             <a href="/viewmovies" class="nav-link">
-                                <p style="color:#1aa67d;font-size: 15px">View Movies</p>
+                                <p style="color:#1aa67d;font-size: 15px">Add Theatre and Actor</p>
                             </a>
                         </li>
                         <li class="nav-item">

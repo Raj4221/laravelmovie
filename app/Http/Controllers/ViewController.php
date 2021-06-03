@@ -91,16 +91,6 @@ class ViewController extends Controller
         return back()->with('msg','actor Updated Sucessfully');
     }
 
-
-    //it is use to view movie theatre
-    public function viewmovietheatre(Request $req){
-        $affected = DB::table('theatres')
-            ->where(['m_id' => $req->id])
-            ->get();
-        return view("book")->with('affected' , $affected);
-    }
-
-
     //used for search
     public function searchmovie(Request $req){
         $search=$req->search;

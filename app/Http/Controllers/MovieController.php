@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\movie;
 use App\Models\actor;
+use App\Models\theatre;
 use Illuminate\Http\Request;
 
 class MovieController extends Controller
@@ -20,6 +21,11 @@ class MovieController extends Controller
         $cast=movie::find($req->id);
         return view("view_movie_detail")->with(['movies'=>$movies,'cast'=>$cast->actors]);
         // return Movie::latest()->get();
+    }
+
+    public function viewmovietheatre(Request $req){
+        $affected=movie::find($req->id);
+        return view("book")->with('affected' , $affected->theatres);
     }
 
     public function view()

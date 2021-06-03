@@ -23,7 +23,7 @@ class LoginController extends Controller
 
     public function login(Request $request)
     {
-        
+
 
         $input = $request->all();
 
@@ -36,7 +36,7 @@ class LoginController extends Controller
 
         if(auth()->attempt(array('email' => $input['email'], 'password' => $input['password'])))
         {
-            
+
            if(auth()->user()->is_admin == 1)
            {
                return redirect('/insert');
@@ -46,7 +46,7 @@ class LoginController extends Controller
                 $request->session()->put("name",$user[0]->name);
                 $request->session()->put("user",$user[0]->id);
                 return redirect('/home');
-           }	
+           }
         }
         else
         {
