@@ -34,7 +34,7 @@
                     @for ($n = 1; $n < 11; $n++)
                         <div>
                             @for($j=1;$j<8;$j++)
-                                    @if(in_array('R'.$j.$n, $seat))
+                                    @if(in_array('R'.$n.$j, $seat))
                                         <input type="checkbox" name="item[]" value="R{{$n}}{{$j}}" disabled>
                                     @else
                                 <input type="checkbox" name="item[]" value="R{{$n}}{{$j}}" >
@@ -48,7 +48,7 @@
                 @for ($n = 1; $n < 8; $n++)
                     <div>
                         @for($j=1;$j<8;$j++)
-                            @if(in_array('S'.$j.$n, $seat))
+                            @if(in_array('S'.$n.$j, $seat))
                                 <input type="checkbox" name="item[]" value="S{{$n}}{{$j}}" disabled/>
                             @else
                                 <input type="checkbox" name="item[]" value="S{{$n}}{{$j}}" >
@@ -62,7 +62,7 @@
                 @for ($n = 1; $n < 11; $n++)
                     <div>
                         @for($j=1;$j<8;$j++)
-                            @if(in_array('T'.$j.$n, $seat))
+                            @if(in_array('T'.$n.$j, $seat))
                                 <input type="checkbox" name="item[]" value="T{{$n}}{{$j}}" disabled/>
                             @else
                                 <input type="checkbox" name="item[]" value="T{{$n}}{{$j}}" >
