@@ -101,6 +101,11 @@
                             </a>
                         </li>
                         <li class="nav-item">
+                            <a href="{{route('booking.index')}}" class="nav-link">
+                                <p style="color:#1aa67d;font-size: 15px">View Booking</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
                             <a href="/logout" class="nav-link">
                                 <p style="color:#1aa67d;font-size: 15px">Logout</p>
                             </a>

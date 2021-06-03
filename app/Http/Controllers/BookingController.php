@@ -13,14 +13,15 @@ class BookingController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * 
+     *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
         //
-        return Booking::latest()->get(); 
-       
+        $bookings=Booking::latest()->get();
+        return view("admin_view_booking")->with('bookings',$bookings);
+
     }
 
     /**

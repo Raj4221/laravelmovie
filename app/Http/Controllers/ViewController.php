@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 class ViewController extends Controller
 {
+    //It is use to view ticket deatils:
     public function view(Request $req){
         $affected = DB::table('theatres')
             ->join('bookings', 'bookings.t_id', '=', 'theatres.t_id')
@@ -15,33 +16,38 @@ class ViewController extends Controller
             ->get();
         return view("ticket")->with('affected' , $affected);
     }
+
+
+
+    //It is use To view Movies:
     public function viewmovie(Request $req){
         $affected = DB::table('movies')
             ->get();
         return view("view_movie")->with('affected',$affected);
     }
-    public function viewmoviedetail(Request $req){
-        $affected = DB::table('movies')
-        ->where(['movies.id' => $req->id])
-        ->get();
-        $cast = DB::table('actors')
-        ->where(['m_id' => $req->id])
-        ->get();
-        return view("view_movie_detail")->with(['affected' => $affected,  'cast' => $cast]);
-    }
+
+
     public function viewtheatre(Request $req){
         $affected = DB::table('theatres')
             ->get();
         return view("view_theatre")->with('affected',$affected);
     }
+
+    //It is use To delete theatre:
     public function theatredelete(Request $req){
         $delete = DB::table('theatres')->where('t_id', $req->id)->delete();
         return back();
     }
+
+
+    //It is use To delete actor:
     public function actordelete(Request $req){
         $delete = DB::table('actors')->where('a_id', $req->id)->delete();
         return back();
     }
+
+
+    //view actor
     public function viewactordetail(Request $req){
         $actor = DB::table('actors')
         ->where(['a_id' => $req->id])
@@ -53,6 +59,9 @@ class ViewController extends Controller
         ->get();
         return view("viewactordetail")->with(['actor' => $actor,  'movie' => $movie]);
     }
+
+
+    //It is use to update theatre:
     public function viewtheatredetail(Request $req){
         $affected = DB::table('theatres')
             ->where(['t_id' => $req->id])
@@ -65,22 +74,34 @@ class ViewController extends Controller
         ->update(['t_name'=>$req->name,'t_city'=>$req->city,'rate'=>$req->rate]);
         return back()->with('msg','Theatre Updated Sucessfully');
     }
+
+
+
+    //It is use to update actor:
+    public function adminactordetail(Request $req){
+        $affected = DB::table('actors')
+            ->where(['a_id' => $req->id])
+            ->get();
+        return view("admin_update_actor")->with('affected',$affected);
+    }
+    public function updateactordetail(Request $req){
+        $affected = DB::table('actors')
+        ->where('a_id', $req->a_id)
+        ->update(['name'=>$req->name,'bio'=>$req->bio,'dob'=>$req->dob]);
+        return back()->with('msg','actor Updated Sucessfully');
+    }
+
+
+    //it is use to view movie theatre
     public function viewmovietheatre(Request $req){
         $affected = DB::table('theatres')
             ->where(['m_id' => $req->id])
             ->get();
-        // $book = DB::table('bookings')
-        //     ->where(['m_id' => $req->id])
-        //     ->get();
-        // $seat = array();
-        // for($i =0;$i < count($book);$i++){
-        //     $s=array();
-        //     $s=explode(",", $book[$i]->seatno);
-        //     $seat = array_merge($seat, $s);
-
-        // }
         return view("book")->with('affected' , $affected);
     }
+
+
+    //used for search
     public function searchmovie(Request $req){
         $search=$req->search;
         $movie = DB::table('movies')
@@ -93,6 +114,10 @@ class ViewController extends Controller
             ->get();
         return view("home")->with('movie',$movie);
     }
+
+
+
+    //use for seat:
     public function seat(Request $req){
         $date=date('Y-m-d', time());
         $book = DB::table('bookings')

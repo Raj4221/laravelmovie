@@ -41,7 +41,8 @@ Route::resource("actor","App\Http\Controllers\ActorController");
 Route::get("/viewactordetail/{id?}","App\\Http\\Controllers\\ViewController@viewactordetail");
 Route::get("/actor_delete/{id?}","App\\Http\\Controllers\\ViewController@actordelete");
 Route::get("/viewactor","App\\Http\\Controllers\\ActorController@index");
-
+Route::get("/edit_actor/{id?}","App\\Http\\Controllers\\ViewController@adminactordetail");
+Route::post("/update_actor/{id?}","App\\Http\\Controllers\\ViewController@updateactordetail");
 
 Route::resource("booking","App\Http\Controllers\BookingController");
 Route::get('/ticket/{id?}',"App\\Http\\Controllers\\ViewController@view");

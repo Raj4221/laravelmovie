@@ -48,7 +48,7 @@
                                                 <td>{{$act->name}}</td>
                                                 <td>{{$act->bio}}</td>
                                                 <td>{{$act->dob}}</td>
-                                                <td><a href="#" style="text-decoration:none;">UPDATE</a></td>
+                                                <td><a href="/edit_actor/{{$act->a_id}}" style="text-decoration:none;">UPDATE</a></td>
                                                 <td><a href="/actor_delete/{{$act->a_id}}" style="text-decoration:none;" onclick="delete()">DELETE</a></td>
                                             </tr>
                                         @endforeach
