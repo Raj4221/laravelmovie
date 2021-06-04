@@ -24,9 +24,7 @@
                                 @foreach ($cast as $pro)
                                     <div class="col-4">
                                     <a href="/viewactordetail/{{$pro->a_id}}"><img src="/img/avatar_2x.png" alt="Admin" class="rounded-circle mt-2" style="width: 150px ;height: 150px"></a>
-                                    <h5 class="mt-3"><b>{{$pro->name}}</b></h5>
-                                    Bio: <span id="title">{{$pro->bio}}</span><br>
-                                    Birth Date: <span id="title">{{$pro->dob}}</span>
+                                    <h5 class="mt-3 ml-3"><b>{{$pro->name}}</b></h5>
                                     </div>
                                 @endforeach
                                 </div>
